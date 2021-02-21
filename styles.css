@@ -1,29 +1,39 @@
-#container {
-  position: absolute;
-  height: 200px;
-  border: 1px solid black;
-  top: calc(50% - 100px);
-  left: calc(50% - 350px);
+
+#keyboard-console {
+  background-image: url("https://static.vecteezy.com/system/resources/previews/000/164/623/original/woodgrain-background-vector.jpg");
+  background-size: 100%;
+  border-radius: 5px;
+  /* max-width: 70%; */
+  width: 910px;
+  margin: auto;
+}
+
+#keys-container {
+  /* position: absolute; */
+  height: 195px;
+  padding: 20px;
+  /* border: 1px solid black; */
+  
+  
 }
 
 .whitenote {
   height: 100%;
-  width: 50px;
+  width: 60px;
   background: white;
   float: left;
-  border-right: 1px solid black;
   position: relative;
-}
-
-.whitenote:last-child {
-  border-right: none;
+  border-radius: 3px;
+  margin: 1px;
 }
 
 .blacknote {
   position: absolute;
-  height: 65%;
-  width: 55%;
+  height: 52%;
+  width: 66%;
   z-index: 1;
   background: black;
-  left: 71%;
+  left: 70%;
+  border-radius: 3px;
+  margin-top: -1px;
 }

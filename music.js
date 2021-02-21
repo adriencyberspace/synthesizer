@@ -12,7 +12,6 @@ var synth = new Tone.PolySynth().toDestination();
         hasSharp = false;
       }
 
-      
       html += `<div class="whitenote" 
         onmousedown="noteDown(this, false)" 
         onmouseup="noteUp(this, false)" 
@@ -32,7 +31,7 @@ var synth = new Tone.PolySynth().toDestination();
 
 }
 
-  document.querySelector('#container').innerHTML = html;
+  document.querySelector('#keys-container').innerHTML = html;
 
   function noteUp(e, isSharp) {
     e.style.background = isSharp ? 'black' : 'white';
