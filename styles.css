@@ -1,0 +1,29 @@
+#container {
+  position: absolute;
+  height: 200px;
+  border: 1px solid black;
+  top: calc(50% - 100px);
+  left: calc(50% - 350px);
+}
+
+.whitenote {
+  height: 100%;
+  width: 50px;
+  background: white;
+  float: left;
+  border-right: 1px solid black;
+  position: relative;
+}
+
+.whitenote:last-child {
+  border-right: none;
+}
+
+.blacknote {
+  position: absolute;
+  height: 65%;
+  width: 55%;
+  z-index: 1;
+  background: black;
+  left: 71%;
+}
