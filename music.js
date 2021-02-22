@@ -15,26 +15,22 @@ document.getElementById("octave-down").onclick = () => {
   octaveDown();
 }
 
-
-
 var waveButtons = document.getElementsByClassName('change-wave');
 for (var i = 0; i < waveButtons.length; i++) {
-    waveButtons[i].addEventListener('click', function() {
-        synth.oscillator.type = this.value;
-        if (this.value != synth.oscillator.type) {
-          this.style.background = "#6DBEE4";
-        } else {
-          this.style.background = "#F84D00";
-        }
-    });
+  let selected = 'wave-selected';
+  waveButtons[i].addEventListener('click', function() {
+    synth.oscillator.type = this.value;
+
+    // Remove selected class from all buttons, then add it to the currently selected button
+    for (let sibling of this.parentNode.children) {
+      sibling.classList.remove(selected);
+    }
+    this.classList.add(selected);
+
+  });
 }
-// for (let button in waveButtons) {
-//   current = waveButtons[button];
-//   console.log(current);
-//   current.onclick = () => {
-//     console.log(this);
-//   }
-// }
+
+
 
 function octaveUp() {
   octave += 1;
