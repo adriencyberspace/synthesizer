@@ -6,13 +6,21 @@ var octave = 4;
 
 buildKeyboard(octave);
 
-document.getElementById("button").onclick = () => {
+document.getElementById("octave-up").onclick = () => {
   octaveUp();
-  alert(octave);
+}
+
+document.getElementById("octave-down").onclick = () => {
+  octaveDown();
 }
 
 function octaveUp() {
   octave += 1;
+  buildKeyboard(octave);
+}
+
+function octaveDown() {
+  octave -= 1;
   buildKeyboard(octave);
 }
 
