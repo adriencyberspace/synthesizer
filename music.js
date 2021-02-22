@@ -21,6 +21,11 @@ var waveButtons = document.getElementsByClassName('change-wave');
 for (var i = 0; i < waveButtons.length; i++) {
     waveButtons[i].addEventListener('click', function() {
         synth.oscillator.type = this.value;
+        if (this.value != synth.oscillator.type) {
+          this.style.background = "#6DBEE4";
+        } else {
+          this.style.background = "#F84D00";
+        }
     });
 }
 // for (let button in waveButtons) {

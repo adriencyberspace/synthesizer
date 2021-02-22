@@ -29,7 +29,12 @@ body {
 #keys-container {
   height: 195px;
   width:fit-content;
-  margin-top: 10px;
+  margin-top: 15px;
+}
+
+#button-flex-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .whitenote {
@@ -68,6 +73,7 @@ body {
 
 .wave-btn-container {
   width: fit-content;
+  align-self: flex-end;
 }
 
 .change-wave {
@@ -88,14 +94,11 @@ body {
   font-family: sans-serif;
 }
 
-.change-octave-btn:last-child {
+.change-octave-btn {
   background: #F84D00;
 }
 
-.wave-selected {
-  background: #F84D00;
-}
-
-#sine {
+#sine, #square {
   font-size: 18px;
 }
+
