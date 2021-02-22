@@ -1,8 +1,9 @@
-var synth = new Tone.PolySynth().toDestination();
-var notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+let synth = new Tone.Synth().toDestination(),
+    notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'],
+    html = "",
+    octave = 4;
 
-var html = "";
-var octave = 4;
+synth.oscillator.type = "sine";
 
 buildKeyboard(octave);
 
@@ -13,6 +14,22 @@ document.getElementById("octave-up").onclick = () => {
 document.getElementById("octave-down").onclick = () => {
   octaveDown();
 }
+
+
+
+var waveButtons = document.getElementsByClassName('change-wave');
+for (var i = 0; i < waveButtons.length; i++) {
+    waveButtons[i].addEventListener('click', function() {
+        synth.oscillator.type = this.value;
+    });
+}
+// for (let button in waveButtons) {
+//   current = waveButtons[button];
+//   console.log(current);
+//   current.onclick = () => {
+//     console.log(this);
+//   }
+// }
 
 function octaveUp() {
   octave += 1;

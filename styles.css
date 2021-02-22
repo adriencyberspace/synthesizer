@@ -17,7 +17,7 @@ body {
   margin: auto;
   height: 250px;
   display: grid;
-  grid-template-comlumns: 1fr;
+  grid-template-columns: 1fr;
   height: fit-content;
   text-align: center;
   padding: 20px;
@@ -30,8 +30,6 @@ body {
   height: 195px;
   width:fit-content;
   margin-top: 10px;
-  
-  
 }
 
 .whitenote {
@@ -54,11 +52,7 @@ body {
   border-radius: 3px;
 }
 
-/* .octave-adjustment {
-  padding: 20px 10px 0px 20px;
-} */
-
-.octave-adjustment {
+.button-container {
   background: black;
   color: white;
   text-align: left;
@@ -68,7 +62,19 @@ body {
   border-radius: 5px;
 }
 
-.change-octave-btn{
+.octave-btn-container {
+  width: 120px;
+}
+
+.wave-btn-container {
+  width: fit-content;
+}
+
+.change-wave {
+
+}
+
+.synth-btn{
   width: 42px;
   background: #6DBEE4;
   border-radius: 5px;
@@ -86,3 +92,10 @@ body {
   background: #F84D00;
 }
 
+.wave-selected {
+  background: #F84D00;
+}
+
+#sine {
+  font-size: 18px;
+}

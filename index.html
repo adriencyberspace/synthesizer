@@ -10,14 +10,22 @@
 <body>
   <div id="wrapper">
     <div id="keyboard-console">
-      <div class="octave-adjustment">
-        <button id="octave-down" class="change-octave-btn" type="button">- Z</button>
-        <button id="octave-up" class="change-octave-btn" type="button"> X +</button>
+      <div class="button-container octave-btn-container">
+        <button id="octave-down" class="change-octave-btn synth-btn" type="button">- Z</button>
+        <button id="octave-up" class="change-octave-btn synth-btn" type="button"> X +</button>
       </div>
       <div id="keys-container">
       </div>
     </div>
   </div>
+
+  <div class="button-container wave-btn-container">
+    <button id="sine" value="sine" class="change-wave synth-btn wave-selected" type="button">∿</button>
+    <button id="triangle" value="triangle" class="change-wave synth-btn" type="button">△</button>
+    <button id="square" value="square" class="change-wave synth-btn" type="button">◻</button>
+    <button id="sawtooth" value="sawtooth" class="change-wave synth-btn" type="button">√</button>
+  </div>
+
   <script src="music.js"></script>
 </body>
 </html>
