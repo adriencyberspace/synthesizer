@@ -1,7 +1,32 @@
 let synth = new Tone.Synth().toDestination(),
-    notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'],
     html = "",
     octave = 4;
+
+
+let notes = [{
+  "note": 'C',
+  "key": 'A'
+}, {
+  "note": 'D',
+  "key": 'S'
+}, {
+  "note": 'E',
+  "key": 'D'
+}, {
+  "note": 'F',
+  "key": 'F'
+}, {
+  "note": 'G',
+  "key": 'G'
+}, {
+  "note": 'A',
+  "key": 'H'
+}, {
+  "note": 'B',
+  "key": 'J'
+}];
+
+console.log(notes[0].note);
 
 synth.oscillator.type = "sine";
 
@@ -51,9 +76,29 @@ function buildKeyboard(octave) {
 
 
 function addKeys(x, octave){
+  if (x == 4) {
+    notes = [{
+      "note": 'C',
+      "key": 'K'
+    }, {
+      "note": 'D',
+      "key": 'L'
+    }, {
+      "note": 'E',
+      "key": 'D'
+    }, {
+      "note": 'F',
+      "key": ';'
+    }]; 
+    console.log(notes);
+  }
+
   for (var i = 0; i < x; i++) {
     var displaySharp = true;
-    var note = notes[i];
+    var note = notes[i].note;
+    var key = notes[i].key;
+
+    console.log(note);
 
     if (x == 4) {
       if (note == 'F') {
@@ -76,10 +121,10 @@ function addKeys(x, octave){
         onmousedown="noteDown(this, true)" 
         onmouseup="noteUp(this, true)" 
         onmouseleave="noteUp(this, true)" 
-        data-note="${note + '#' + (octave)}"></div>`;
+        data-note="${note + '#' + (octave)}">${note + '#'}</div>`;
     }
   
-    html += '</div>';
+    html += `<div class="whitenotekey">${key}</div></div>`;
   }
 }
 

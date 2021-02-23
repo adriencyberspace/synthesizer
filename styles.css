@@ -45,6 +45,14 @@ body {
   position: relative;
   border-radius: 3px;
   margin: 1px;
+  display: flex;
+  flex-direction: row;
+}
+
+.whitenotekey {
+  align-self: flex-end;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .blacknote {
@@ -55,6 +63,7 @@ body {
   background: black;
   left: 70%;
   border-radius: 3px;
+  color: white;
 }
 
 .button-container {
