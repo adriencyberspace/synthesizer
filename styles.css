@@ -64,6 +64,13 @@ body {
   left: 70%;
   border-radius: 3px;
   color: white;
+  display: flex;
+}
+
+.ascii-key-display {
+  align-self: flex-end;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .button-container {

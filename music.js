@@ -26,6 +26,23 @@ let notes = [{
   "key": 'J'
 }];
 
+let sharps = [{
+  "note": 'C#',
+  "key": 'W'
+}, {
+  "note": 'D#',
+  "key": 'E'
+}, {
+  "note": 'F#',
+  "key": 'T'
+}, {
+  "note": 'G#',
+  "key": 'Y'
+}, {
+  "note": 'A#',
+  "key": 'U'
+}];
+
 console.log(notes[0].note);
 
 synth.oscillator.type = "sine";
@@ -85,20 +102,25 @@ function addKeys(x, octave){
       "key": 'L'
     }, {
       "note": 'E',
-      "key": 'D'
+      "key": ';'
     }, {
       "note": 'F',
-      "key": ';'
-    }]; 
-    console.log(notes);
+      "key": "'"
+    }];
+    sharps = [{
+      "note": 'C#',
+      "key": 'O'
+    }, {
+      "note": 'D#',
+      "key": 'P'
+    }];
+    console.log(sharps);
   }
 
   for (var i = 0; i < x; i++) {
     var displaySharp = true;
     var note = notes[i].note;
     var key = notes[i].key;
-
-    console.log(note);
 
     if (x == 4) {
       if (note == 'F') {
@@ -109,22 +131,39 @@ function addKeys(x, octave){
     if (note == 'E' || note == 'B') {
       displaySharp = false;
     }
-  
+
+    
+
     html += `<div class="whitenote" 
       onmousedown="noteDown(this, false)" 
       onmouseup="noteUp(this, false)" 
       onmouseleave="noteUp(this, false)" 
       data-note="${note + (octave)}">`;
   
+
+    let noteSharp = note + '#';
+
     if (displaySharp) {
       html += `<div class="blacknote" 
         onmousedown="noteDown(this, true)" 
         onmouseup="noteUp(this, true)" 
         onmouseleave="noteUp(this, true)" 
-        data-note="${note + '#' + (octave)}">${note + '#'}</div>`;
-    }
+        data-note="${noteSharp + (octave)}">
+        <div class="ascii-key-display">`;
+
+      for (var j = 0; j < sharps.length; j++) {
+        if (sharps[j].note == noteSharp) {
+          html += `${sharps[j].key}`;
+        }
+      }
+
+      html += `</div></div>`;
+    
+      }
+
+    
   
-    html += `<div class="whitenotekey">${key}</div></div>`;
+    html += `<div class="ascii-key-display">${key}</div></div>`;
   }
 }
 
