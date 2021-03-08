@@ -6,81 +6,81 @@ let synth = new Tone.Synth().toDestination(),
 let notesOne = [{
   "note": 'C',
   "key": 'A',
-  "ascii": '#'
+  "ascii": '65'
 }, {
   "note": 'D',
   "key": 'S',
-  "ascii": '#'
+  "ascii": '83'
 }, {
   "note": 'E',
   "key": 'D',
-  "ascii": '#'
+  "ascii": '#68'
 }, {
   "note": 'F',
   "key": 'F',
-  "ascii": '#'
+  "ascii": '70'
 }, {
   "note": 'G',
   "key": 'G',
-  "ascii": '#'
+  "ascii": '71'
 }, {
   "note": 'A',
   "key": 'H',
-  "ascii": '#'
+  "ascii": '72'
 }, {
   "note": 'B',
   "key": 'J',
-  "ascii": '#'
+  "ascii": '74'
 }];
 
 let sharpsOne = [{
   "note": 'C#',
   "key": 'W',
-  "ascii": '#'
+  "ascii": '87'
 }, {
   "note": 'D#',
   "key": 'E',
-  "ascii": '#'
+  "ascii": '69'
 }, {
   "note": 'F#',
   "key": 'T',
-  "ascii": '#'
+  "ascii": '84'
 }, {
   "note": 'G#',
   "key": 'Y',
-  "ascii": '#'
+  "ascii": '89'
 }, {
   "note": 'A#',
   "key": 'U',
-  "ascii": '#'
+  "ascii": '85'
 }];
 
 let notesTwo = [{
   "note": 'C',
   "key": 'K',
-  "ascii": '#'
+  "ascii": '75'
 }, {
   "note": 'D',
   "key": 'L',
-  "ascii": '#'
+  "ascii": '76'
 }, {
   "note": 'E',
   "key": ';',
-  "ascii": '#'
+  "ascii": '59' 
 }, {
   "note": 'F',
   "key": "'",
-  "ascii": '#'
+  "ascii": '39'
 }];
 
 let sharpsTwo = [{
   "note": 'C#',
   "key": 'O',
-  "ascii": '#'
+  "ascii": '79'
 }, {
   "note": 'D#',
   "key": 'P',
-  "ascii": '#'
+  "ascii": '80'
 }];
 
 synth.oscillator.type = "sine";
