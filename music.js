@@ -1,8 +1,9 @@
+// TODO: Make it poly
+
 let synth = new Tone.Synth().toDestination(),
     html = "",
     octave = 4;
 
-// TODO: trigger attack release for each key down so you can play with ascii keyboard.
 let notesOne = [{
   "note": 'C',
   "key": 'A',
@@ -14,7 +15,7 @@ let notesOne = [{
 }, {
   "note": 'E',
   "key": 'D',
-  "ascii": '#68'
+  "ascii": '68'
 }, {
   "note": 'F',
   "key": 'F',
@@ -66,11 +67,11 @@ let notesTwo = [{
 }, {
   "note": 'E',
   "key": ';',
-  "ascii": '59' 
+  "ascii": '186' 
 }, {
   "note": 'F',
   "key": "'",
-  "ascii": '39'
+  "ascii": '222'
 }];
 
 let sharpsTwo = [{
@@ -136,6 +137,7 @@ function addKeys(x, octave, notes, sharps){
     var displaySharp = true;
     var note = notes[i].note;
     var key = notes[i].key;
+    var ascii = notes[i].ascii;
 
     // If second F, don't display sharp
     if (x == 4) {
@@ -153,7 +155,8 @@ function addKeys(x, octave, notes, sharps){
     html += `<div class="whitenote" 
       onmousedown="noteDown(this, false)" 
       onmouseup="noteUp(this, false)" 
-      onmouseleave="noteUp(this, false)" 
+      onmouseleave="noteUp(this, false)"
+      data-ascii="${ascii}"
       data-note="${note + (octave)}">`;
 
     let noteSharp = note + '#';
@@ -162,8 +165,9 @@ function addKeys(x, octave, notes, sharps){
     if (displaySharp) {
       html += `<div class="blacknote" 
         onmousedown="noteDown(this, true)" 
-        onmouseup="noteUp(this, true)" 
-        onmouseleave="noteUp(this, true)" 
+        onmouseup="noteUp(this, true)"
+        onmouseleave="noteUp(this, true)"
+        data-ascii="${ascii}"
         data-note="${noteSharp + (octave)}">
         <div class="ascii-key-display">`;
 
@@ -188,9 +192,97 @@ function noteUp(e, isSharp) {
 }
 
 function noteDown(e, isSharp) {
+  console.log(e)
+  var ascii = e.dataset.ascii
   var note = e.dataset.note;
   e.style.background = isSharp ? '#c29417' : '#fff6de';
   synth.triggerAttackRelease(note, "16n");
   event.stopPropagation();
 }
 
+// TODO: Refactor this with noteUp and noteDown
+// Add keydown function / ascii playability
+document.addEventListener('keydown', keyDown);
+document.addEventListener('keyup', keyUp);
+
+function keyDown(event) {
+  keyCode = event.keyCode;
+
+  // NotesOne
+  for (var i = 0; i < notesOne.length; i++) {
+    var note = notesOne[i].note
+    var ascii = notesOne[i].ascii
+
+    if (ascii == keyCode) {
+      note = note + (octave);
+      synth.triggerAttackRelease(note, "16n");
+      document.querySelector(`.whitenote[data-ascii="${ascii}"]`).style.background = '#fff6de';
+    }
+  }
+
+  // NotesTwo
+  for (var i = 0; i < notesTwo.length; i++) {
+    var note = notesTwo[i].note
+    var ascii = notesTwo[i].ascii
+
+    if (ascii == keyCode) {
+      note = note + (octave + 1);
+      synth.triggerAttackRelease(note, "16n");
+      document.querySelector(`.whitenote[data-ascii="${ascii}"]`).style.background = '#fff6de';
+    }
+  }
+
+  // SharpsOne
+  for (var i = 0; i < sharpsOne.length; i++) {
+    var note = sharpsOne[i].note
+    var ascii = sharpsOne[i].ascii
+
+    if (ascii == keyCode) {
+      note = note + (octave);
+      console.log(note);
+      synth.triggerAttackRelease(note, "16n");
+      document.querySelector(`.blacknote[data-note="${note}"]`).style.background = '#c29417';
+
+    }
+  }
+
+  // SharpsTwo
+  for (var i = 0; i < sharpsTwo.length; i++) {
+    var note = sharpsTwo[i].note
+    var ascii = sharpsTwo[i].ascii
+
+    if (ascii == keyCode) {
+      note = note + (octave + 1);
+      synth.triggerAttackRelease(note, "16n");
+      document.querySelector(`.blacknote[data-note="${note}"]`).style.background = '#c29417';
+    }
+  }
+}
+
+function keyUp() {
+  // NotesOne
+  for (var i = 0; i < notesOne.length; i++) {
+    var ascii = notesOne[i].ascii
+    document.querySelector(`.whitenote[data-ascii="${ascii}"]`).style.background = 'white';
+    }
+
+  // NotesTwo
+  for (var i = 0; i < notesTwo.length; i++) {
+    var ascii = notesTwo[i].ascii
+    document.querySelector(`.whitenote[data-ascii="${ascii}"]`).style.background = 'white';
+    }
+  
+  // SharpsOne
+  for (var i = 0; i < sharpsOne.length; i++) {
+    var note = sharpsOne[i].note
+    note = note + octave
+    document.querySelector(`.blacknote[data-note="${note}"]`).style.background = 'black';
+    }
+
+  // SharpsTwo
+  for (var i = 0; i < sharpsTwo.length; i++) {
+    var note = sharpsTwo[i].note
+    note = note + (octave + 1)
+    document.querySelector(`.blacknote[data-note="${note}"]`).style.background = 'black';
+    }
+  }
