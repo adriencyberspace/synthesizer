@@ -1,5 +1,5 @@
 # synthesizer
-Tone.js ongoing playable synth experiment. [Try it out](https://adriencyberspace.github.io/synthesizer/)!
+Tone.js ongoing playable synth experiment.<a href="https://adriencyberspace.github.io/synthesizer/" target="_blank">Try it out</a>!
 
 3/10/21 Current version has:
 - Octave up and down 
