@@ -5,6 +5,9 @@ body {
   height: 100vh;
 }
 
+button:focus {
+  outline: none;
+}
 
 
 #keyboard-console {

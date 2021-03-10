@@ -88,11 +88,24 @@ synth.oscillator.type = "sine";
 
 buildKeyboard(octave);
 
-document.getElementById("octave-up").onclick = () => {
+// On mouse down and up - octave and button color change
+document.getElementById("octave-up").onmousedown = () => {
+  document.querySelector('#octave-up').style.background = "#6DBEE4";
   octaveUp();
 }
 
-document.getElementById("octave-down").onclick = () => {
+document.getElementById("octave-up").onmouseup = () => {
+  document.querySelector('#octave-up').style.background = "#F84D00";
+  octaveUp();
+}
+
+document.getElementById("octave-down").onmousedown = () => {
+  document.querySelector('#octave-down').style.background = "#6DBEE4";
+  octaveDown();
+}
+
+document.getElementById("octave-down").onmouseup = () => {
+  document.querySelector('#octave-down').style.background = "#F84D00";
   octaveDown();
 }
 
