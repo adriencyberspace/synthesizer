@@ -9,6 +9,9 @@ button:focus {
   outline: none;
 }
 
+#error {
+  display: none;
+}
 
 #keyboard-console {
   background-image: url("https://static.vecteezy.com/system/resources/previews/000/164/623/original/woodgrain-background-vector.jpg");
@@ -119,3 +122,21 @@ button:focus {
   background: #F84D00;
 }
 
+@media only screen and (max-width: 990px) {
+  #wrapper {
+    display: none;
+  }
+
+  #error {
+    display: block;
+    width: 90%;
+    margin: 20px auto;
+    background: #F84D00;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    text-transform: none;
+  }
+
+}
