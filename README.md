@@ -1,7 +1,7 @@
 # synthesizer
 Tone.js ongoing playable synth experiment. Try it out!
 
-3/8/21 Current version has:
+3/10/21 Current version has:
 - Octave up and down 
 - Sine, triangle, square, sawtooth waveforms
 - Playable with ASCII keyboard
