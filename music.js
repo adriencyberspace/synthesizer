@@ -96,6 +96,7 @@ document.getElementById("octave-down").onclick = () => {
   octaveDown();
 }
 
+// ASCII Octave Up and Down
 document.onkeydown = (e) => {
   e = e || window.event;
   console.log(e.keyCode);
@@ -109,6 +110,7 @@ document.onkeydown = (e) => {
   }
 }
 
+// Change button color back onkeyup
 document.onkeyup = (e) => {
   e = e || window.event;
   console.log(e.keyCode);
