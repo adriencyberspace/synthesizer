@@ -96,6 +96,30 @@ document.getElementById("octave-down").onclick = () => {
   octaveDown();
 }
 
+document.onkeydown = (e) => {
+  e = e || window.event;
+  console.log(e.keyCode);
+  if (e.keyCode == 49) {
+    document.querySelector('#octave-down').style.background = "#6DBEE4";
+    octaveDown();
+  }
+  if (e.keyCode == 50) {
+    document.querySelector('#octave-up').style.background = "#6DBEE4";
+    octaveUp();
+  }
+}
+
+document.onkeyup = (e) => {
+  e = e || window.event;
+  console.log(e.keyCode);
+  if (e.keyCode == 49) {
+    document.querySelector('#octave-down').style.background = "#F84D00";
+  }
+  if (e.keyCode == 50) {
+    document.querySelector('#octave-up').style.background = "#F84D00";
+  }
+}
+
 var waveButtons = document.getElementsByClassName('change-wave');
 for (var i = 0; i < waveButtons.length; i++) {
   let selected = 'wave-selected';
