@@ -150,7 +150,6 @@ for (var i = 0; i < waveButtons.length; i++) {
   });
 }
 
-// TODO: one function for both octave up and down
 function octaveUp() {
   octave += 1;
   buildKeyboard(octave);

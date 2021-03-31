@@ -1,8 +1,29 @@
+html {
+	height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 body {
-  font-family: sans-serif;
-  text-transform: uppercase;
-  font-size: 12px;
-  height: 100vh;
+  font-family: "Poppins", Helvetica, sans-serif;
+	text-transform: uppercase;
+	font-weight: 300;
+  font-size: 14px;
+	letter-spacing: 1.5px;
+	background: white;
+	z-index: -1;
+	overscroll-behavior: none;
+	animation: fadeInAnimation ease 1s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+h1 {
+  font-size: 55px;
+  letter-spacing: 2px;
+  font-weight: 500;
 }
 
 button:focus {
@@ -13,21 +34,34 @@ button:focus {
   display: none;
 }
 
+#header {
+  width: 50%;
+  margin: 100px auto 0;
+  text-align: center;
+}
+
+#header h1 {
+  margin-bottom: 0px;
+}
+
+#header p {
+  margin-top: 0px;
+  font-size: 20px;
+}
+
 #keyboard-console {
   background-image: url("https://static.vecteezy.com/system/resources/previews/000/164/623/original/woodgrain-background-vector.jpg");
   background-size: 100%;
   border-radius: 5px;
   max-width: 70%;
   width: fit-content;
-  margin: auto;
-  height: 250px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
   height: fit-content;
   text-align: center;
   padding: 20px;
   border-radius: 5px;
-  margin: 100px auto;
 }
 
 #keys-container {
@@ -132,10 +166,11 @@ button:focus {
     width: 90%;
     margin: 20px auto;
     background: #F84D00;
+    opacity: .95;
     color: white;
     border-radius: 5px;
     padding: 20px;
-    font-size: 20px;
+    font-size: 18px;
     text-transform: none;
   }
 
